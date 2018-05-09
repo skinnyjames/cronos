@@ -63,11 +63,12 @@ Cronos.prototype.friendly = function Cronos$friendly() {
   let string = ''
   
   if (this.years) {
-    if (this.years > MILLION) {
+    let years = Math.abs(this.years)
+    if (years > MILLION) {
       string += (this.years / MILLION).toString() + ' Million Years, '
-    } else if (this.years > THOUSAND) {
+    } else if (years > THOUSAND) {
       string += (this.years / THOUSAND).toString() + ' Thousand Years, '
-    } else if (this.years > HUNDRED) {
+    } else if (years > HUNDRED) {
       string += (this.years / HUNDRED).toString() + ' Hundred Years, '
     } else {
       string += this.years.toString() + ' Years, '
