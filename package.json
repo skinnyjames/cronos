@@ -1,0 +1,26 @@
+{
+  "name": "cronos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skinnyjames/cronos.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skinnyjames/cronos/issues"
+  },
+  "homepage": "https://github.com/skinnyjames/cronos#readme",
+  "devDependencies": {
+    "mocha": "^5.1.1",
+    "webpack": "^4.8.1"
+  },
+  "dependencies": {
+    "mathjs": "^4.2.2"
+  }
+}
