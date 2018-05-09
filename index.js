@@ -119,7 +119,7 @@ function tickTock(self, settings, remainder) {
 
   let setting = settings.shift()
 
-  if (Math.abs(remainder) > setting.ratio) {
+  if (Math.abs(remainder) >= setting.ratio) {
 
     self[setting.property] = Math.floor(remainder / setting.ratio)
 
