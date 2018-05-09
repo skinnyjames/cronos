@@ -49,13 +49,11 @@ Cronos.prototype.fromNow = function Cronos$fromNow() {
 
   this.reference = current
 
-  let time = -Math.abs(-this.time + offset)
-
-  this.time = time
+  let time = -this.time + offset
+  
+  this.time = -time
 
   let settings = SETTINGS.slice(0)
-
-
 
   tickTock(this, settings, this.time)
   
