@@ -6,6 +6,7 @@ const SECONDS_PER_MINUTE = 60
 const SECONDS_PER_HOUR = 3600
 const SECONDS_PER_DAY = 86400
 const SECONDS_PER_WEEK = 604800
+const SECONDS_PER_MONTH = 2629746
 const SECONDS_PER_YEAR = 31536000
 
 const HUNDRED = 100 
@@ -19,6 +20,7 @@ const WEEKS_PER_YEAR = 365
 
 const SETTINGS = [
   { ratio: SECONDS_PER_YEAR, property: 'years' },
+  { ratio: SECONDS_PER_MONTH, property: 'months' },
   { ratio: SECONDS_PER_WEEK, property: 'weeks' },
   { ratio: SECONDS_PER_DAY, property: 'days' },
   { ratio: SECONDS_PER_HOUR, property: 'hours' },
@@ -32,29 +34,12 @@ function Cronos(time, reference) {
   this.time = time
   this.reference = reference
 
-  tickTock(this, SETTINGS, this.time)
+  let settings = SETTINGS.slice(0)
+
+  tickTock(this, settings, this.time)
 
   return this
 
-  function tickTock(self, settings, remainder) {
-
-    if (settings.length == 0) { return }
-
-    let setting = settings.shift()
-
-    if (Math.abs(remainder) > setting.ratio) {
-
-      self[setting.property] = Math.floor(remainder / setting.ratio)
-
-      remainder = remainder % setting.ratio
-
-    } else {
-
-      self[setting.property] = 0 
-
-    }
-    tickTock(self, settings, remainder)
-  }
 }
 
 Cronos.prototype.fromNow = function Cronos$fromNow() {
@@ -64,6 +49,10 @@ Cronos.prototype.fromNow = function Cronos$fromNow() {
 
   this.reference = current
   this.time = this.time + -Math.abs(offset)
+
+  let settings = SETTINGS.slice(0)
+
+  tickTock(this, settings, this.time)
   
   return this
 }
@@ -71,51 +60,40 @@ Cronos.prototype.fromNow = function Cronos$fromNow() {
 Cronos.prototype.friendly = function Cronos$friendly() {
   let seconds = Math.abs(this.time)
   let formatted = formatDate(this.reference)
+  let string = ''
   
-  if (seconds > SECONDS_PER_YEAR) {
-    let years = (seconds / SECONDS_PER_YEAR)
-
-    if (years > MILLION) {
-
-      return Math.round((years / MILLION)).toString() + ' Million Years from ' + formatted
-
-    } else if (years > THOUSAND) {
-
-      return Math.round((years / THOUSAND)).toString() + ' Thousand Years from ' + formatted
-
-    } else if (years > HUNDRED) {
-
-      return Math.round((years / THOUSAND)).toString() + ' Hundred Years from ' + formatted
-
+  if (this.years) {
+    if (this.years > MILLION) {
+      string += (this.years / MILLION).toString() + ' Million Years, '
+    } else if (this.years > THOUSAND) {
+      string += (this.years / THOUSAND).toString() + ' Thousand Years, '
+    } else if (this.years > HUNDRED) {
+      string += (this.years / HUNDRED).toString() + ' Hundred Years, '
     } else {
-      return Math.round(years).toString() + ' Years from ' + formatted
+      string += this.years.toString() + ' Years, '
     }
-
-  } else if (seconds > SECONDS_PER_WEEK) {
-
-    let weeks = (seconds / SECONDS_PER_WEEK)   
-    return Math.round(weeks).toString() + ' Weeks from ' + formatted
-
-  } else if (seconds > SECONDS_PER_DAY) {
-
-    let days = (seconds / SECONDS_PER_DAY)
-    return Math.round(days).toString() + ' Days from ' + formatted
-
-  } else if (seconds > SECONDS_PER_HOUR) {
-
-    let hours = (seconds / SECONDS_PER_HOUR)
-    return Math.round(hours).toString() + ' Hours from ' + formatted
-
-  } else if (seconds > SECONDS_PER_MINUTE) {
-
-    let minutes = (seconds / SECONDS_PER_MINUTE)
-    return Math.round(minutes).toString() + ' Minutes from ' + formatted
-
-  } else {
-    
-    return Math.round(seconds).toString() + ' Seconds from ' + formatted
-    
   }
+
+  if (this.months) {
+    string += this.months.toString() + ' Months, '
+  }
+
+  if (this.weeks) {
+    string += this.weeks.toString() + ' Weeks, '
+  }
+
+  if (this.hours) {
+    string += this.hours.toString() + ' Hours, '
+  }
+
+  if (this.minutes) {
+    string += this.minutes.toString() + ' Minutes, '
+  }
+
+  string += ' From ' + formatted
+  
+  return string
+
 
   function formatDate(date) {
     let day = date.getDate().toString()
@@ -134,3 +112,22 @@ function createCronos(time, reference) {
   return new Cronos(time, reference)
 }
  
+function tickTock(self, settings, remainder) {
+
+  if (settings.length == 0) { return }
+
+  let setting = settings.shift()
+
+  if (Math.abs(remainder) > setting.ratio) {
+
+    self[setting.property] = Math.floor(remainder / setting.ratio)
+
+    remainder = remainder % setting.ratio
+
+  } else {
+
+    self[setting.property] = 0 
+
+  }
+  tickTock(self, settings, remainder)
+}
