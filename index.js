@@ -48,8 +48,10 @@ Cronos.prototype.fromNow = function Cronos$fromNow() {
   let offset = (current - this.reference) / 1000
 
   this.reference = current
-  let time = this.time + Math.abs(offset)
-  this.time = -Math.abs(offset)
+
+  let time = -Math.abs(-this.time + offset)
+
+  this.time = time
 
   let settings = SETTINGS.slice(0)
 
@@ -124,7 +126,7 @@ function tickTock(self, settings, remainder) {
 
   if (Math.abs(remainder) >= setting.ratio) {
 
-    self[setting.property] = Math.floor(remainder / setting.ratio)
+    self[setting.property] = remainder < 0 ? Math.ceil(remainder / setting.ratio) : Math.floor(remainder / setting.ratio)
 
     remainder = remainder % setting.ratio
 
