@@ -1,5 +1,7 @@
 # usage
 
+` npm install @skinnyjames/cronos `
+
 ```javascript 
 
 const cronos = require('cronos')
