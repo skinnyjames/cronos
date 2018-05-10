@@ -1,7 +1,7 @@
 {
   "name": "@skinnyjames/cronos",
   "version": "1.0.0",
-  "description": "",
+  "description": "Handle Big Big Time",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
