@@ -1,6 +1,13 @@
-# usage
+## cronos
 
-` npm install @skinnyjames/cronos `
+library for working with big dates
+
+## usage
+
+```
+npm install @skinnyjames/cronos
+
+```
 
 ```javascript 
 
