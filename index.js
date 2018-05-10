@@ -108,6 +108,10 @@ Cronos.prototype.friendly = function Cronos$friendly() {
   
 }
 
+Cronos.prototype.valueOf = function Cronos$valueOf() {
+  return (this.reference / 1000) - this.time
+}
+
 Cronos.prototype.serialize = function Cronos$seralize() {
   return this.time.toString() + '|' + this.reference.valueOf()
 }
