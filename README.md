@@ -11,18 +11,18 @@ npm install @skinnyjames/hourglass
 
 ```javascript 
 
-const cronos = require('cronos')
+const hourglass = require('@skinnyjames/hourglass')
 
 // Pass an object with a seconds and from property
 
-let aYearAgo = cronos({
+let aYearAgo = hourglass({
   seconds: -31536000,
   from: new Date(2000, 0, 1, 0, 0, 0)
 })
 
 // or pass in as two parameters
 
-let whenThePyramidsWereBuilt = cronos(-146011680000, new Date(2000, 0, 1, 0, 0, 0, 0))
+let whenThePyramidsWereBuilt = hourglass(-146011680000, new Date(2000, 0, 1, 0, 0, 0, 0))
 
 ```
 
@@ -40,7 +40,7 @@ get the span in seconds in between two events
 
 ```javascript
 
-let deathOfAlexanderTheGreat = cronos(-73255805000, new Date(2000, 0, 1, 0, 0, 0, 0))
+let deathOfAlexanderTheGreat = hourglass(-73255805000, new Date(2000, 0, 1, 0, 0, 0, 0))
 
 let spanInYears = (whenThePyramidsWereBuilt - deathOfAlexanderTheGreat) / 31536000
 
