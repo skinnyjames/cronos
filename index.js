@@ -31,8 +31,17 @@ module.exports = createCronos
 
 function Cronos(time, reference) {
 
-  this.time = time
-  this.reference = reference
+  if (typeof time == 'object') {
+
+    this.time = time.seconds
+    this.reference = time.from
+
+  } else {
+
+    this.time = time
+    this.reference = reference
+
+  }
 
   let settings = SETTINGS.slice(0)
 
