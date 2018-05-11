@@ -1,6 +1,4 @@
 //const JAVASCRIPT_FLOOR = -100,000,000 days before january 1, 1970
-// spans are represented like -2342342342342<>75555433333
-
 
 const SECONDS_PER_MINUTE = 60
 const SECONDS_PER_HOUR = 3600
@@ -12,11 +10,6 @@ const SECONDS_PER_YEAR = 31536000
 const HUNDRED = 100 
 const THOUSAND = 1000
 const MILLION = 1000000
-
-const HOURS_PER_DAY = 24
-const DAYS_PER_WEEK = 7
-const WEEKS_PER_YEAR = 365
-
 
 const SETTINGS = [
   { ratio: SECONDS_PER_YEAR, property: 'years' },
@@ -141,7 +134,6 @@ function tickTock(self, settings, remainder) {
   if (Math.abs(remainder) >= setting.ratio) {
 
     self[setting.property] = remainder < 0 ? Math.ceil(remainder / setting.ratio) : Math.floor(remainder / setting.ratio)
-
     remainder = remainder % setting.ratio
 
   } else {
