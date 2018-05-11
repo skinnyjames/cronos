@@ -1,11 +1,11 @@
-## cronos
+## hourglass
 
-library for working with big dates
+library for working with relative time
 
 ## usage
 
 ```
-npm install @skinnyjames/cronos
+npm install @skinnyjames/hourglass
 
 ```
 

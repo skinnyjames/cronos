@@ -1,21 +1,21 @@
 {
-  "name": "@skinnyjames/cronos",
+  "name": "@skinnyjames/hourglass",
   "version": "1.0.2",
-  "description": "Handle Big Big Time",
+  "description": "library for measuring relative time",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skinnyjames/cronos.git"
+    "url": "git+https://github.com/skinnyjames/hourglass.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/skinnyjames/cronos/issues"
+    "url": "https://github.com/skinnyjames/hourglass/issues"
   },
-  "homepage": "https://github.com/skinnyjames/cronos#readme",
+  "homepage": "https://github.com/skinnyjames/hourglass#readme",
   "devDependencies": {
     "mocha": "^5.1.1",
     "webpack": "^4.8.1"
