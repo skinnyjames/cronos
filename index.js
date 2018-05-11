@@ -51,9 +51,8 @@ function Cronos(time, reference) {
 
 }
 
-Cronos.prototype.fromNow = function Cronos$fromNow() {
+Cronos.prototype.from = function Cronos$from(current) {
 
-  let current = new Date(Date.now())
   let offset = (current - this.reference) / 1000
 
   this.reference = current
@@ -67,6 +66,10 @@ Cronos.prototype.fromNow = function Cronos$fromNow() {
   tickTock(this, settings, this.time)
   
   return this
+}
+
+Cronos.prototype.fromNow = function Cronos$fromNow() {
+  return this.from(new Date(Date.now()))
 }
 
 Cronos.prototype.friendly = function Cronos$friendly() {
