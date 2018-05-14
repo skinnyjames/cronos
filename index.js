@@ -26,7 +26,15 @@ function Cronos(time, reference) {
 
   if (typeof time == 'object') {
 
-    this.time = time.seconds
+    let seconds = time.seconds ? time.seconds : 0
+
+    for (let i=0;i<SETTINGS.length;i++) {
+      if (time[SETTINGS[i].property]) {
+        seconds += time[SETTINGS[i].property] * SETTINGS[i].ratio
+      } 
+    }
+
+    this.time = seconds
     this.reference = time.from
 
   } else {
@@ -143,3 +151,4 @@ function tickTock(self, settings, remainder) {
   }
   tickTock(self, settings, remainder)
 }
+

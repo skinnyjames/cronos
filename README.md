@@ -13,11 +13,16 @@ npm install @skinnyjames/hourglass
 
 const hourglass = require('@skinnyjames/hourglass')
 
-// Pass an object with a seconds and from property
+// Pass an object with a years, months, weeks, hours, minutes, seconds and a from property
 
 let aYearAgo = hourglass({
   seconds: -31536000,
   from: new Date(2000, 0, 1, 0, 0, 0)
+})
+
+let twoThousandYearsAgo = hourglass({
+  years: -2000,
+  from: new Date(Date.now())
 })
 
 // or pass in as two parameters
