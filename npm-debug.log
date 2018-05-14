@@ -1,0 +1,111 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/webdev/.nvm/versions/node/v6.3.1/bin/node',
+1 verbose cli   '/home/webdev/.nvm/versions/node/v6.3.1/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.3
+3 info using node@v6.3.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/webdev/repos/contrib/hourglass',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/webdev/.npm/@skinnyjames/hourglass/1.0.3/package.tgz not in flight; packing
+9 verbose correctMkdir /home/webdev/.npm correctMkdir not in flight; initializing
+10 info lifecycle @skinnyjames/hourglass@1.0.3~prepublish: @skinnyjames/hourglass@1.0.3
+11 silly lifecycle @skinnyjames/hourglass@1.0.3~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/home/webdev/.npm/@skinnyjames/hourglass/1.0.3/package.tgz',
+12 verbose tar pack   '/home/webdev/repos/contrib/hourglass' ]
+13 verbose tarball /home/webdev/.npm/@skinnyjames/hourglass/1.0.3/package.tgz
+14 verbose folder /home/webdev/repos/contrib/hourglass
+15 verbose addLocalTarball adding from inside cache /home/webdev/.npm/@skinnyjames/hourglass/1.0.3/package.tgz
+16 verbose correctMkdir /home/webdev/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd @skinnyjames/hourglass@1.0.3
+18 verbose afterAdd /home/webdev/.npm/@skinnyjames/hourglass/1.0.3/package/package.json not in flight; writing
+19 verbose correctMkdir /home/webdev/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /home/webdev/.npm/@skinnyjames/hourglass/1.0.3/package/package.json written
+21 silly publish { name: '@skinnyjames/hourglass',
+21 silly publish   version: '1.0.3',
+21 silly publish   description: 'library for measuring relative time',
+21 silly publish   main: 'index.js',
+21 silly publish   scripts: { test: 'mocha' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/skinnyjames/hourglass.git' },
+21 silly publish   author: '',
+21 silly publish   license: 'MIT',
+21 silly publish   bugs: { url: 'https://github.com/skinnyjames/hourglass/issues' },
+21 silly publish   homepage: 'https://github.com/skinnyjames/hourglass#readme',
+21 silly publish   devDependencies: { mocha: '^5.1.1', webpack: '^4.8.1' },
+21 silly publish   dependencies: {},
+21 silly publish   readme: '## hourglass\n\nlibrary for working with relative time\n\n## usage\n\n```\nnpm install @skinnyjames/hourglass\n\n```\n\n```javascript \n\nconst hourglass = require(\'@skinnyjames/hourglass\')\n\n// Pass an object with a years, months, weeks, hours, minutes, seconds and a from property\n\nlet aYearAgo = hourglass({\n  seconds: -31536000,\n  from: new Date(2000, 0, 1, 0, 0, 0)\n})\n\nlet twoThousandYearsAgo = hourglass({\n  years: -2000,\n  from: new Date(Date.now())\n})\n\n// or pass in as two parameters\n\nlet whenThePyramidsWereBuilt = hourglass(-146011680000, new Date(2000, 0, 1, 0, 0, 0, 0))\n\n```\n\nget the number of years elapsed\n\n```javascript\n\nconsole.log(whenThePyramidsWereBuilt.years)\n\n> -4630\n\n```\n\nget the span in seconds in between two events\n\n```javascript\n\nlet deathOfAlexanderTheGreat = hourglass(-73255805000, new Date(2000, 0, 1, 0, 0, 0, 0))\n\nlet spanInYears = (whenThePyramidsWereBuilt - deathOfAlexanderTheGreat) / 31536000\n\nconsole.log(Math.round(spanInYears))\n\n> 2307\n\n```\n\nfind out the years elapsed from an arbitary date\n\n```javascript\n\nlet future = new Date(8000, 0, 1, 0, 0, 0, 0)\n\nconsole.log(deathOfAlexanderTheGreat.from(future).years)\n\n> -8326\n\n```\n\nprint a friendly date (in progress)\n\n\n```javascript\n\nconsole.log(aYearAgo.friendly())\n\n> 1 years, from 1/1/2000\n\n```\n\n## development\n\nplease feel free to submit pull requests, report a bug, or just share your knowledge and ideas!\n\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '8d14421d353767e64d9ec0a6a9f8776aaf38e5b1',
+21 silly publish   _id: '@skinnyjames/hourglass@1.0.3',
+21 silly publish   _shasum: '317cda6d67af3c5672a2c6ea90111e8e7a7c5d66',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name @skinnyjames/hourglass
+24 silly mapToRegistry scope (from package name) @skinnyjames
+25 verbose mapToRegistry no registry URL found in name for scope @skinnyjames
+26 silly mapToRegistry using default registry
+27 silly mapToRegistry registry https://registry.npmjs.org/
+28 silly mapToRegistry data Result {
+28 silly mapToRegistry   raw: '@skinnyjames/hourglass',
+28 silly mapToRegistry   scope: '@skinnyjames',
+28 silly mapToRegistry   escapedName: '@skinnyjames%2fhourglass',
+28 silly mapToRegistry   name: '@skinnyjames/hourglass',
+28 silly mapToRegistry   rawSpec: '',
+28 silly mapToRegistry   spec: 'latest',
+28 silly mapToRegistry   type: 'tag' }
+29 silly mapToRegistry uri https://registry.npmjs.org/@skinnyjames%2fhourglass
+30 verbose publish registryBase https://registry.npmjs.org/
+31 silly publish uploading /home/webdev/.npm/@skinnyjames/hourglass/1.0.3/package.tgz
+32 verbose request uri https://registry.npmjs.org/@skinnyjames%2fhourglass
+33 verbose request sending authorization for write operation
+34 info attempt registry request try #1 at 9:40:04 AM
+35 verbose request using bearer token for auth
+36 verbose request id aba12243c8a83e67
+37 http request PUT https://registry.npmjs.org/@skinnyjames%2fhourglass
+38 http 403 https://registry.npmjs.org/@skinnyjames%2fhourglass
+39 verbose headers { 'content-type': 'application/json',
+39 verbose headers   'cache-control': 'max-age=0',
+39 verbose headers   'content-length': '93',
+39 verbose headers   'accept-ranges': 'bytes',
+39 verbose headers   date: 'Mon, 14 May 2018 14:40:05 GMT',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   connection: 'keep-alive',
+39 verbose headers   'x-served-by': 'cache-ord1746-ORD',
+39 verbose headers   'x-cache': 'MISS',
+39 verbose headers   'x-cache-hits': '0',
+39 verbose headers   'x-timer': 'S1526308805.927972,VS0,VE484' }
+40 verbose request invalidating /home/webdev/.npm/registry.npmjs.org/_40skinnyjames_252fhourglass on PUT
+41 error publish Failed PUT 403
+42 verbose stack Error: You cannot publish over the previously published versions: 1.0.3. : @skinnyjames/hourglass
+42 verbose stack     at makeError (/home/webdev/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+42 verbose stack     at CachingRegistryClient.<anonymous> (/home/webdev/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+42 verbose stack     at Request._callback (/home/webdev/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+42 verbose stack     at Request.self.callback (/home/webdev/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/request/request.js:200:22)
+42 verbose stack     at emitTwo (events.js:106:13)
+42 verbose stack     at Request.emit (events.js:191:7)
+42 verbose stack     at Request.<anonymous> (/home/webdev/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+42 verbose stack     at emitOne (events.js:101:20)
+42 verbose stack     at Request.emit (events.js:188:7)
+42 verbose stack     at IncomingMessage.<anonymous> (/home/webdev/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/request/request.js:988:12)
+43 verbose statusCode 403
+44 verbose pkgid @skinnyjames/hourglass
+45 verbose cwd /home/webdev/repos/contrib/hourglass
+46 error Linux 3.10.0-514.21.1.el7.x86_64
+47 error argv "/home/webdev/.nvm/versions/node/v6.3.1/bin/node" "/home/webdev/.nvm/versions/node/v6.3.1/bin/npm" "publish"
+48 error node v6.3.1
+49 error npm  v3.10.3
+50 error code E403
+51 error You cannot publish over the previously published versions: 1.0.3. : @skinnyjames/hourglass
+52 error If you need help, you may report this error at:
+52 error     <https://github.com/npm/npm/issues>
+53 verbose exit [ 1, true ]
