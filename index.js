@@ -20,9 +20,9 @@ const SETTINGS = [
   { ratio: SECONDS_PER_MINUTE, property: 'minutes' }, 
 ]
 
-module.exports = createCronos
+module.exports = createHourGlass
 
-function Cronos(time, reference) {
+function HourGlass(time, reference) {
 
   if (typeof time == 'object') {
 
@@ -52,7 +52,7 @@ function Cronos(time, reference) {
 
 }
 
-Cronos.prototype.from = function Cronos$from(current) {
+HourGlass.prototype.from = function HourGlass$from(current) {
 
   let offset = (current - this.reference) / 1000
 
@@ -69,11 +69,11 @@ Cronos.prototype.from = function Cronos$from(current) {
   return this
 }
 
-Cronos.prototype.fromNow = function Cronos$fromNow() {
+HourGlass.prototype.fromNow = function HourGlass$fromNow() {
   return this.from(new Date(Date.now()))
 }
 
-Cronos.prototype.friendly = function Cronos$friendly() {
+HourGlass.prototype.friendly = function HourGlass$friendly() {
   let seconds = Math.abs(this.time)
   let formatted = formatDate(this.reference)
   let string = ''
@@ -121,16 +121,16 @@ Cronos.prototype.friendly = function Cronos$friendly() {
   
 }
 
-Cronos.prototype.valueOf = function Cronos$valueOf() {
+HourGlass.prototype.valueOf = function HourGlass$valueOf() {
   return (this.reference / 1000) - this.time
 }
 
-Cronos.prototype.serialize = function Cronos$seralize() {
+HourGlass.prototype.serialize = function HourGlass$seralize() {
   return this.time.toString() + '|' + this.reference.valueOf()
 }
 
-function createCronos(time, reference) {
-  return new Cronos(time, reference)
+function createHourGlass(time, reference) {
+  return new HourGlass(time, reference)
 }
  
 function tickTock(self, settings, remainder) {
