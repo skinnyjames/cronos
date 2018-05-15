@@ -19,6 +19,29 @@ describe('cronos', () => {
       })
       assert(date.years, -1)
     })
+  
+    it('should take a years property', () => {
+      let date = cronos({
+        years: -200,
+        from: new Date(Date.now)
+      })
+      
+      assert(date.years, -200)
+    })
+
+    it('should keep track of the date', () => {
+      let date = cronos({
+        years: 1,  
+        from: new Date(2000, 0, 1)
+      })   
+
+      assert(date.years, 1) 
+
+      let newDate = date.from(new Date(2018, 0, 1)) 
+      
+      assert(newDate.years, -17)
+
+    })
 
     it('from should set the date relative to a new date', () => {
       let date = cronos({
