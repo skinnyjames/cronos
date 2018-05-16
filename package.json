@@ -4,7 +4,8 @@
   "description": "library for measuring relative time",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "lint": "standard index.js",
+    "test": "mocha && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,8 @@
   "homepage": "https://github.com/skinnyjames/hourglass#readme",
   "devDependencies": {
     "mocha": "^5.1.1",
+    "standard": "11.0.1",
     "webpack": "^4.8.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
