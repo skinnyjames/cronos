@@ -1,11 +1,13 @@
 {
   "name": "@skinnyjames/hourglass",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "library for measuring relative time",
   "main": "index.js",
+  "browser": "./dist/hourglass.js",
   "scripts": {
     "lint": "standard index.js",
-    "test": "mocha && npm run lint"
+    "test": "mocha && npm run lint",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -18,9 +20,12 @@
   },
   "homepage": "https://github.com/skinnyjames/hourglass#readme",
   "devDependencies": {
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "1.7.0",
     "mocha": "^5.1.1",
     "standard": "11.0.1",
-    "webpack": "^4.8.1"
+    "webpack": "^4.8.1",
+    "webpack-cli": "2.1.3"
   },
   "dependencies": {}
 }

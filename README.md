@@ -12,6 +12,14 @@ npm install @skinnyjames/hourglass
 
 ```
 
+or include dist/hourglass.js for use in the browser
+
+```html
+<script type="text/javascript" src="hourglass.js"></script>
+<!-- hourglass now available via window -->
+
+```
+
 ```javascript 
 
 const hourglass = require('@skinnyjames/hourglass')
