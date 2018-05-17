@@ -75,9 +75,9 @@ print a friendly date (in progress)
 
 ```javascript
 
-console.log(aYearAgo.friendly())
+console.log(aYearAgo.strftime('%years year and %months months from %date'))
 
-> 1 years, from 1/1/2000
+> -1 year and 0 months from 1/1/2000
 
 ```
 

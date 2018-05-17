@@ -6,7 +6,8 @@ let date = cronos({
   from: new Date(2000, 0, 1, 0, 0, 0)
 })
 
-console.log(date.from(new Date(2018, 0, 1, 0, 0, 0)).friendly())
+//console.log(date.from(new Date(2018, 0, 1, 0, 0, 0)).friendly())
 
+console.log(date.strftime('%years years and %months months from %date'))
 
 

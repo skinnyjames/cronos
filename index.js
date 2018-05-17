@@ -66,42 +66,30 @@ HourGlass.prototype.fromNow = function HourGlass$fromNow () {
   return this.from(new Date(Date.now()))
 }
 
-HourGlass.prototype.friendly = function HourGlass$friendly () {
-  let formatted = formatDate(this.reference)
-  let string = ''
+HourGlass.prototype.strftime = function HourGlass$strftime (formatString) {
+  let years = Math.abs(this.years)
+  let formattedDate = formatDate(this.reference)
 
-  if (this.years) {
-    let years = Math.abs(this.years)
-    if (years > MILLION) {
-      string += (this.years / MILLION).toString() + ' Million Years, '
-    } else if (years > THOUSAND) {
-      string += (this.years / THOUSAND).toString() + ' Thousand Years, '
-    } else if (years > HUNDRED) {
-      string += (this.years / HUNDRED).toString() + ' Hundred Years, '
-    } else {
-      string += this.years.toString() + ' Years, '
-    }
+  if (years > MILLION) {
+    years = (this.years / MILLION).toString() + ' Million'
+  } else if (years > THOUSAND) {
+    years = (this.years / THOUSAND).toString() + ' Thousand'
+  } else if (years > HUNDRED) {
+    years = (this.years / HUNDRED).toString() + ' Hundred'
+  } else {
+    years = this.years.toString()
   }
 
-  if (this.months) {
-    string += this.months.toString() + ' Months, '
-  }
+  formatString = formatString.replace(/%years/, years)
+  formatString = formatString.replace(/%months/, this.months)
+  formatString = formatString.replace(/%weeks/, this.weeks)
+  formatString = formatString.replace(/%days/, this.days)
+  formatString = formatString.replace(/%hours/, this.hours)
+  formatString = formatString.replace(/%minutes/, this.minutes)
+  formatString = formatString.replace(/%seconds/, this.seconds)
+  formatString = formatString.replace(/%date/, formattedDate)
 
-  if (this.weeks) {
-    string += this.weeks.toString() + ' Weeks, '
-  }
-
-  if (this.hours) {
-    string += this.hours.toString() + ' Hours, '
-  }
-
-  if (this.minutes) {
-    string += this.minutes.toString() + ' Minutes, '
-  }
-
-  string += ' From ' + formatted
-
-  return string
+  return formatString
 
   function formatDate (date) {
     let day = date.getDate().toString()

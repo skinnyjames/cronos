@@ -43,16 +43,15 @@ describe('hourglass', () => {
 
     })
 
-    it('from should set the date relative to a new date', () => {
+    it('format the date', () => {
       let date = hourglass({
-        seconds: 31536000, 
+        years: 1,
         from: new Date(2000, 4, 8, 0, 0, 0)
       })
-      assert(date.years, 1)
 
-      date.from(new Date(2018, 4, 8, 0, 0, 0))
-
-      assert(date.years, -17)
+      let string = date.strftime('%years year and %months months after %date')
+    
+      assert(string, '1 year and 0 months after 5/8/2000')
 
     }) 
 
