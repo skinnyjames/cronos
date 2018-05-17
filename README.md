@@ -50,7 +50,7 @@ get the span in seconds in between two events
 
 let deathOfAlexanderTheGreat = hourglass(-73255805000, new Date(2000, 0, 1, 0, 0, 0, 0))
 
-let spanInYears = (whenThePyramidsWereBuilt - deathOfAlexanderTheGreat) / 31536000
+let spanInYears = (whenThePyramidsWereBuilt - deathOfAlexanderTheGreat) / hourglass.SECONDS_PER_YEAR
 
 console.log(Math.round(spanInYears))
 

@@ -107,10 +107,6 @@ HourGlass.prototype.serialize = function HourGlass$seralize () {
   return this.time.toString() + '|' + this.reference.valueOf()
 }
 
-function createHourGlass (time, reference) {
-  return new HourGlass(time, reference)
-}
-
 function tickTock (self, settings, remainder) {
   if (settings.length === 0) { return }
 
@@ -124,3 +120,15 @@ function tickTock (self, settings, remainder) {
   }
   tickTock(self, settings, remainder)
 }
+
+function createHourGlass (time, reference) {
+  return new HourGlass(time, reference)
+}
+
+// Class Properties
+createHourGlass.SECONDS_PER_YEAR = SECONDS_PER_YEAR
+createHourGlass.SECONDS_PER_MONTH = SECONDS_PER_MONTH
+createHourGlass.SECONDS_PER_WEEK = SECONDS_PER_WEEK
+createHourGlass.SECONDS_PER_DAY = SECONDS_PER_DAY
+createHourGlass.SECONDS_PER_HOUR = SECONDS_PER_HOUR
+createHourGlass.SECONDS_PER_MINUTE = SECONDS_PER_MINUTE
