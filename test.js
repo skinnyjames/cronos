@@ -1,4 +1,4 @@
-const hourglass = require('./dist/hourglass.js')
+const hourglass = require('./index')
 
 console.log(hourglass)
 
@@ -21,5 +21,5 @@ console.log(span + ' years')
 //console.log(date.from(new Date(2018, 0, 1, 0, 0, 0)).friendly())
 
 console.log(date2.strftime('%years years and %months months from %date'))
-
+console.log(date2.export())
 

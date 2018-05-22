@@ -103,8 +103,11 @@ HourGlass.prototype.valueOf = function HourGlass$valueOf () {
   return (this.reference / 1000) - this.time
 }
 
-HourGlass.prototype.serialize = function HourGlass$seralize () {
-  return this.time.toString() + '|' + this.reference.valueOf()
+HourGlass.prototype.export = function HourGlass$export () {
+  return {
+    seconds: this.time,
+    from: this.reference
+  }
 }
 
 function tickTock (self, settings, remainder) {
