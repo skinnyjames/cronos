@@ -89,7 +89,7 @@ console.log(aYearAgo.strftime('%years year and %months months from %date'))
 
 ```
 
-export to json
+export to object
 
 ```javascript
 
