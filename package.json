@@ -1,6 +1,6 @@
 {
   "name": "@skinnyjames/hourglass",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "library for measuring relative time",
   "main": "index.js",
   "browser": "./dist/hourglass.js",
